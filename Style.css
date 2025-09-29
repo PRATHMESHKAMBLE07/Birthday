@@ -1,0 +1,34 @@
+  
+  .balloon-wrapper {
+    position: absolute;
+    bottom: -160px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    animation: floatUp linear infinite;
+  }
+  
+  .balloon {
+    width: 80px;
+    height: 110px;
+    border-radius: 50% 50% 45% 55% / 55% 55% 45% 45%;
+    box-shadow: inset -6px -10px 20px rgba(0,0,0,.25);
+    position: relative;
+  }
+  
+  .balloon::after {
+    content: '';
+    position: absolute;
+    top: 100%; /* string starts exactly at balloon bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: var(--string-length, 60px);
+    background: rgba(255,255,255,.3);
+  }
+  
+  @keyframes floatUp {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(-120vh) rotate(15deg); }
+  }
+  
